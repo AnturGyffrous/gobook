@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	// Use hard-coded text to start.
-	text := "let's count some words!"
+	text := " let's count  some words! "
 
 	var numSpaces int
 
