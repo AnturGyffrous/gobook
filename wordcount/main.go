@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"strings"
 )
 
 func main() {
@@ -24,14 +23,15 @@ func main() {
 	// Create a scanner to read fri the file.
 	scanner := bufio.NewScanner(file)
 
+	// Change the split function to split on words instead of lines.
+	scanner.Split(bufio.ScanWords)
+
 	// Counter to track the running total.
 	var wordCount int
 
-	// For each line of the file, get the numner of words, and add it to
-	// the total.
+	// Add 1 to the count for each word
 	for scanner.Scan() {
-		words := strings.Fields(scanner.Text())
-		wordCount += len(words)
+		wordCount++
 	}
 
 	if scanner.Err() != nil {
