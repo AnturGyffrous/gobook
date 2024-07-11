@@ -8,9 +8,12 @@ import (
 )
 
 func main() {
-	filename := "words.txt"
+	if len(os.Args) < 2 {
+		log.Println("need to provide filename!")
+		os.Exit(1)
+	}
 
-	fileContexts, err := os.ReadFile(filename)
+	fileContexts, err := os.ReadFile(os.Args[1])
 	if err != nil {
 		log.Println(err)
 		os.Exit(1)
